@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import {expect, jest, test} from '@jest/globals';
-import { toggleSummary, setTitle, findDetailFor, isBlockLevelDetail } from '../stretchtext.js';
+import {expect, beforeEach, test, describe, afterEach} from '@jest/globals';
+import {toggleSummary, setTitle, findDetailFor, isBlockLevelDetail} from '../stretchtext.js';
 
 describe('testFindDetailFor', () => {
     test('should find correct detail element', () => {
@@ -22,25 +22,25 @@ describe('testFindDetailFor', () => {
 });
 
 describe('testIsBlockLevelDetail', () => {
-    it('should return true if the summary is a block-level detail', () => {
+    test('should return true if the summary is a block-level detail', () => {
         const summary = document.createElement('a');
         expect(isBlockLevelDetail(summary)).toBe(true);
     })
 
-    it('should return false if the summary is not a block-level detail', () => {
+    test('should return false if the summary is not a block-level detail', () => {
         const summary = document.createElement('div');
         expect(isBlockLevelDetail(summary)).toBe(false);
     })
 });
 
 describe('testSetTitle', () => {
-    it('should set title attribute correctly if title not present', () => {
+    test('should set title attribute correctly if title not present', () => {
         const summary = document.createElement('p');
         setTitle(summary, 'Test Title');
         expect(summary.getAttribute('title')).toBe('Test Title');
     });
 
-    it('should not set the title attribute if already exist',  () => {
+    test('should not set the title attribute if already exist', () => {
         const element = document.createElement('p');
         const manualTitle = "Manual Title";
         element.setAttribute("title", manualTitle);
@@ -75,7 +75,7 @@ describe('toggleSummary', () => {
         document.body.removeChild(summary);
     });
 
-    it('should toggle visibility of associated detail', () => {
+    test('should toggle visibility of associated detail', () => {
         toggleSummary(summary);
 
         requestAnimationFrame(() => {
@@ -85,7 +85,7 @@ describe('toggleSummary', () => {
         });
     });
 
-    it('should toggle visibility off if detail is already visible', () => {
+    test('should toggle visibility off if detail is already visible', () => {
         summary.classList.add('stretchtext-open');
         detail.classList.add('stretchtext-open');
         detail.style.display = 'block';
