@@ -1,8 +1,9 @@
+/*TODO: why do we need both epub-type and epub\:type classes?? */
 
 [epub-type="stretchsummary"],
 [epub\:type="stretchsummary"],
 .stretchsummary {
-	border: 1px dashed gray;
+	border: 1px dashed rgb(128, 128, 128);
 	cursor: pointer;
 	color: inherit;
 	text-decoration: none;
