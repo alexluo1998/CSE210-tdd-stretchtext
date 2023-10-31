@@ -1,5 +1,3 @@
-export {stretchTextListener, toggleSummary, setTitle, findDetailFor, isBlockLevelDetail};
-
 const TITLE_WHEN_CLOSED = 'Expand';
 const TITLE_WHEN_OPEN = 'Collapse';
 
@@ -20,7 +18,7 @@ const requestAnimationFrame =
  * If a summary is clicked or tapped, toggle it.
  * @param {UIEvent} event triggered mouse or touch event
  */
-function stretchTextListener(event) {
+export function stretchTextListener(event) {
 	const summary = event.target.closest('.stretchsummary') ||
 		event.target.closest('[epub-type="stretchsummary"]');
 	if (summary) {
@@ -42,7 +40,7 @@ function stretchTextListener(event) {
  * Toggles the visibility of the StretchText details for the given summary.
  * @param {HTMLElement} summary - The summary element.
  */
-function toggleSummary(summary) {
+export function toggleSummary(summary) {
 	const detail = findDetailFor(summary);
 	if (!detail) {
 		return;
@@ -70,7 +68,7 @@ function toggleSummary(summary) {
  * @param {HTMLElement} summary - The summary element.
  * @param {string} title - The title to set.
  */
-function setTitle(summary, title) {
+export function setTitle(summary, title) {
 	// Only if the element doesn't have a custom title.
 	if (!summary.hasAttribute('title')) {
 		summary.setAttribute('title', title);
@@ -83,7 +81,7 @@ function setTitle(summary, title) {
  * @param {HTMLElement} summary - The summary element.
  * @returns {HTMLElement|null} - The detail element or null.
  */
-function findDetailFor(summary) {
+export function findDetailFor(summary) {
 	if (isBlockLevelDetail(summary)) {
 		const id = summary.getAttribute('href').replace(/^#/, '');
 		const detail = document.getElementById(id);
@@ -105,10 +103,6 @@ function findDetailFor(summary) {
  * @param {HTMLElement} summary - The summary element.
  * @returns {boolean} - True if detail is block level.
  */
-function isBlockLevelDetail(summary) {
+export function isBlockLevelDetail(summary) {
 	return summary.nodeName.toLowerCase() === 'a';
 }
-
-module.exports = isBlockLevelDetail
-
-module.exports = {presets: ['@babel/preset-env']}
