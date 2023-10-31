@@ -1,0 +1,23 @@
+{
+  "name": "cse210-tdd-stretchtext",
+  "version": "1.0.0",
+  "description": "stretchtext.js ==============",
+  "main": "main.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.2",
+    "chai": "^4.3.10",
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0",
+    "mocha": "^10.2.0"
+  }
+}

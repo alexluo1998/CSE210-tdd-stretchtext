@@ -108,3 +108,7 @@ function findDetailFor(summary) {
 function isBlockLevelDetail(summary) {
 	return summary.nodeName.toLowerCase() === 'a';
 }
+
+module.exports = isBlockLevelDetail
+
+module.exports = {presets: ['@babel/preset-env']}
